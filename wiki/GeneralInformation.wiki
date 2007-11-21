@@ -1,0 +1,15 @@
+#summary What is uSync?
+
+= Introduction =
+
+uSync is a set of shell scripts that interact in a sort of client-server environment.  One script runs on the iPhone (launched from the uSync icon on SpringBoard) and the other runs on a local computer.
+
+===Starting uSync from the iPhone/iPT===
+It will first determine what network the phone is connected to and check for a pre-defined "server" for that location.  If one is not available in the uSync.conf file then it will prompt the user to define one either for temporary use or to save the location for permanent use.  Once it connects to the local computer it will then check if any new podcasts or other media has become available since the last time it synced.  If there's something new it will display a list of new podcasts on the phone.  The user then has the opportunity to sync the new content.  Once syncing has begun the uSync application will close and syncing will continue in the background so the user can continue using their phone.  If the user launches uSync again while a sync is in progress a dialog will display stating "Sync in progress" followed by another that tells many megabytes have transferred of the total.  When syncing completes a jingle will sound and a dialog will pop up stating "Sync finished."  The new content is now available in the iPod app.
+
+===Starting uSync from the local computer===
+uSync can be started on the computer in a two main modes, manual and automatic.  Manual mode is started with 'uSync-Server -m'.  This will attempt to locate the iPhone based on the IP address that the iPhone last connected from.  If it can't connect then you'll need to first connect again from the iPhone (just hit no to syncing) so that the IP gets updated.  Once the local computer finds and verifies the connection to the iPhone it will launch GTKPod to interact with the iTunes library (add/change/delete songs and videos).  When the user is finished just close GTKPod and all the changes will be synced back to the phone.
+
+The second mode is 'uSync -a' -- automatic mode.  This is for syncing the contents of the folder SyncDir (defined in uSync-Server.conf) with the iPhone automatically.  This is the mode that's called when uSync is started from the phone, rather than from the computer.
+
+The third mode is "new podcast mode" and is called with 'uSync-Server -n'.  This doesn't sync anything with the iPhone.  It's used for alerting the phone that something new is available to sync.  It parses through the files in NewFileDir and moves them to SyncDir where 'uSync-Server -a' will find and sync them.  If you tell your podcatcher to execute 'uSync-Server -n' after downloading a new podcast to NewFileDir then your phone will be automatically notified that something new is available.  You can then launch uSync from the phone to see what's new and decide if you want to sync or not, and if so, sync the new content automatically.
