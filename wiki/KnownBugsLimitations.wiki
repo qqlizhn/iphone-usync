@@ -4,7 +4,7 @@
 
   * Automatic mode (GNUPod) will not sync album art or videos.
 
-  * If a sync is interrupted then a stale lockfile is left so you can't restart it.  This can be fixed by removing the work "Locked" from the sync_lock file in the /Applications/uSync.app directory on the iPhone.
+  * If a sync is interrupted then a stale lockfile is left so you can't restart it.  This can be fixed by removing the word "Locked" from the sync_lock file in the /Applications/uSync.app directory on the iPhone.
 
   * If the IP address of your iPhone or computer changes then the SSH fingerprint might change too which will prevent connecting.  Fix this by logging in manually and SSHing to your computer then back to your iPhone so you can make sure nothing is blocking the connection.
 
