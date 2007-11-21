@@ -11,3 +11,5 @@
   * Podcasts synced in automatic mode (GNUPod) don't show up in the Podcasts section in the iPod app.  I'm currently playing with some code to make this happen.  It is supported in GNUPod but I couldn't make it work smart enough yet.
 
   * uSync crashes if I'm using 'Dock'.  libpurple apps are rather buggy.  uSync uses Erica Sadun's utilities (doAlert, doPrompt etc.) for interactivity and since they're libpurple apps they wont run while another libpurple app is running.  This means that if 'Dock' or another libpurple app is already running then uSync will crash since it can't display any dialogs.
+
+  * Only one uSync "server" can be defined per location.
